@@ -1,0 +1,19 @@
+.hint {
+  color: crimson;
+  float: right;
+}
+
+.msg {
+  padding: 10px;
+  float: left;
+}
+
+.red {
+  color: red;
+  border: 1px solid red;
+}
+
+.green {
+  color: green;
+  border: 1px solid green;
+}
