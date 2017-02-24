@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingListCheckOff" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shopping List Check Off</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Shopping List Check Off</h1>
+
+      <div class="row">
+
+        <!-- To Buy List -->
+        <div class="col-md-6" ng-controller="ToBuyController as toBuy">
+         <h2>To Buy:</h2>
+         <ul>
+           <li ng-repeat="item in toBuy.items">
+             Buy {{ item.quantity }} {{ item.name }}
+             <button class="btn btn-default" ng-click="toBuy.markAsBought($index)">
+               <span class="glyphicon glyphicon-ok ok"></span> Bought
+             </button>
+           </li>
+         </ul>
+         <div class="emptyMessage complete" ng-if="toBuy.isEmpty()">Everything is bought!</div>
+        </div>
+
+        <!-- Already Bought List -->
+        <div class="col-md-6" ng-controller="AlreadyBoughtController as bought">
+         <h2>Already Bought:</h2>
+         <ul>
+           <li ng-repeat="item in bought.items">
+             Bought {{ item.quantity }} {{ item.name }}
+             <button class="btn btn-default" ng-click="bought.markAsLost($index)">
+               <span class="glyphicon glyphicon-remove remove"></span> Lost on the way home
+             </button>
+           </li>
+         </ul>
+         <div class="emptyMessage" ng-if="bought.isEmpty()">Nothing bought yet.</div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
