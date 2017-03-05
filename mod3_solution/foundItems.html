@@ -1,0 +1,21 @@
+<h3 class="message">Nothing found</h3>
+<table class="table table-striped found-items">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Short name</th>
+    <th>Description</th>
+    <th>Remove</th>
+  </tr>
+  <tr ng-repeat="item in ctrl.items">
+    <td>{{ $index }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.short_name }}</td>
+    <td>{{ item.description }}</td>
+    <td>
+      <button class="btn btn-danger" ng-click="ctrl.onRemove({ index: $index });">
+        Don't want this one!
+      </button>
+    </td>
+  </tr>
+</table>
