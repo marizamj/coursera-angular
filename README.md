@@ -6,3 +6,6 @@ https://marizamj.github.io/coursera-angular/mod1_solution/index.html
 
 ### Solution 2
 https://marizamj.github.io/coursera-angular/mod2_solution/index.html
+
+### Solution 3
+https://marizamj.github.io/coursera-angular/mod3_solution/index.html
