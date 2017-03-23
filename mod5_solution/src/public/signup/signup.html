@@ -1,0 +1,71 @@
+<div class="container" ng-if="!signupCtrl.success">
+  <h2 id="menu-categories-title" class="text-center">Please fill out the following form</h2>
+
+  <form style="max-width:600px; margin:0 auto; text-align:center" name="signupForm" novalidate>
+
+    <div class="form-group">
+      <label for="firstNmae">First name</label>
+      <input type="text" class="form-control" placeholder="First name"
+        required name="firstName" ng-model="signupCtrl.firstName">
+        <div ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched"
+          class="signup-warning">
+          First name is required
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last name</label>
+      <input type="text" class="form-control" placeholder="Last name"
+        required name="lastName" ng-model="signupCtrl.lastName">
+        <div ng-if="signupForm.lastName.$error.required && signupForm.lastName.$touched"
+          class="signup-warning">
+          Last name is required
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" placeholder="Email"
+        required name="email" ng-model="signupCtrl.email">
+        <div ng-if="signupForm.email.$invalid && signupForm.email.$touched"
+          class="signup-warning">
+          Must be a valid email address: handle@domain format
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone number</label>
+      <input type="number" class="form-control" placeholder="Phone number"
+        required name="phone" ng-model="signupCtrl.phone">
+        <div ng-if="signupForm.phone.$error.required && signupForm.phone.$touched"
+          class="signup-warning">
+          Phone number is required
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Favourite menu number</label>
+      <input type="text" class="form-control" placeholder="Favourite menu number"
+        required name="menuNumber" ng-model="signupCtrl.menuNumber">
+        <div ng-if="signupForm.menuNumber.$error.required && signupForm.menuNumber.$touched"
+          class="signup-warning">
+          Favourite menu number is required
+        </div>
+        <div ng-if="signupCtrl.error" class="signup-warning">
+          No such menu number exists
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-default" ng-disabled="signupForm.$invalid"
+      ng-click="signupCtrl.submit()">
+      Submit
+    </button>
+
+  </form>
+</div>
+
+<div class="container" ng-if="signupCtrl.success" style="text-align:center">
+  <h2 class="text-center">Your information has been saved</h2>
+  <button ng-click="signupCtrl.myInfo()" class="btn btn-default">My info</button>
+  <button ng-click="signupCtrl.change()" class="btn btn-default">Change</button>
+</div>

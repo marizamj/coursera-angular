@@ -1,0 +1,27 @@
+<div class="container" style="text-align:center" ng-if="myInfoCtrl.user">
+  <h2 class="text-center">My info</h2>
+  <div class="my-info-line">First name: {{ myInfoCtrl.user.firstName }}</div>
+  <div class="my-info-line">Last name: {{ myInfoCtrl.user.lastName }}</div>
+  <div class="my-info-line">Email: {{ myInfoCtrl.user.email }}</div>
+  <div class="my-info-line">Phone: {{ myInfoCtrl.user.phone }}</div>
+  <div class="my-info-line">Favourite dish: </div>
+  <div class="row" ng-if="myInfoCtrl.user.favouriteDish.name">
+    <div class="col-sm-5">
+      <div class="menu-item-photo">
+        <div>{{myInfoCtrl.user.favouriteDish.short_name}}</div>
+        <img class="img-responsive" width="250" height="150"
+          ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.user.favouriteDish.short_name}}.jpg"
+          alt="{{myInfoCtrl.user.favouriteDish.name}}">
+      </div>
+    </div>
+    <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{myInfoCtrl.user.favouriteDish.name}}</h3>
+      <p class="menu-item-details">{{myInfoCtrl.user.favouriteDish.description}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="container" ng-if="!myInfoCtrl.user" style="text-align:center">
+  <h2 class="text-center">Not Signed Up Yet</h2>
+  <button ng-click="myInfoCtrl.signUp()" class="btn btn-default">Sign up now!</button>
+</div>
